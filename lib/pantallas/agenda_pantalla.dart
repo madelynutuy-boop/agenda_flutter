@@ -17,9 +17,9 @@ class _AgendaPantallaState extends State<AgendaPantalla> {
 Future<void> guardaragenda(BuildContext context) async{
     //ingresamos nuestro primer registro
     Map<String, dynamic> nuevaagenda = {
-      'fecha' : '',
-      'titulo' : 'dia de los muertos',
-      'detalles' : 'preparar pan de muerto',
+      'fecha' : textFecha.text, 
+      'titulo' : textTitulo.text,
+      'detalles' : textDetalles.text,
       
     };
  try {
@@ -111,7 +111,7 @@ if (idReg > 0) {
                   await guardaragenda (context);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
+                  backgroundColor: const Color.fromARGB(255, 54, 131, 194),
                   foregroundColor: Colors.white
                 ), 
                 child: Icon(Icons.save)),
