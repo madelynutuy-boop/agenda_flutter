@@ -20,7 +20,7 @@ Future _createDB(Database db, int version)async{
   await db.execute('''
 CREATE TABLE IF NOT EXISTS agenda(
 agenda_id INTEGER PRIMARY  KEY AUTOINCREMENT,
-fecha REAL  NULL,
+fecha TEXT  NULL,
 titulo TEXT  NULL,
 detalles TEXT  NULL
 );
