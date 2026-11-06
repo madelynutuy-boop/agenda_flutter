@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_agenda/database_helper.dart';
+import 'package:flutter_agenda/pantallas/lista_citas_pantalla.dart';
 
 class AgendaPantalla extends StatefulWidget {
   const AgendaPantalla({super.key});
@@ -43,12 +44,21 @@ if (idReg > 0) {
       );
 
     }
+
+    textTitulo.clear();
+    textDetalles.clear();
+
+    Future.delayed(const Duration(seconds: 1), () {
+      Navigator.pushReplacement(
+        context, 
+        MaterialPageRoute(builder: (_)=> ListaCitasPantalla(),
+        ),
+        );
+    }
+    );
   }
 
-
-
-
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,9 +67,11 @@ if (idReg > 0) {
         title: Text('AGENDA'),
         
       ),
+
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsetsGeometry.all(20.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: 50,),
 

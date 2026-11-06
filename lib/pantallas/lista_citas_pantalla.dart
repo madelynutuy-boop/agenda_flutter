@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_agenda/database_helper.dart';
+import 'package:flutter_agenda/pantallas/agenda_pantalla.dart';
 
 class ListaCitasPantalla extends StatefulWidget {
   const ListaCitasPantalla({super.key});
@@ -27,12 +28,16 @@ class _ListaCitasPantallaState extends State<ListaCitasPantalla> {
       citas = datos;
     });
   }
-
-
+      
+    
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Citas Registradas")),
+      appBar: AppBar(
+         backgroundColor: Colors.lightBlue,
+        title: Text("Citas Registradas")),
+
+        
       body: ListView.builder(
               itemCount: citas.length,
               itemBuilder: (context, index) {
@@ -56,7 +61,7 @@ class _ListaCitasPantallaState extends State<ListaCitasPantalla> {
                       children: [
                         Text("Fecha: ${cita['fecha']}"),
                         const SizedBox(height: 5),
-                        Text(cita['detalle']),
+                        Text(cita['detalles']),
                       ],
                     ),
                     trailing: IconButton(
@@ -93,6 +98,23 @@ class _ListaCitasPantallaState extends State<ListaCitasPantalla> {
                 );
               },
             ),
+
+            floatingActionButton: FloatingActionButton(
+              backgroundColor: Colors.cyan,
+              foregroundColor: Colors.white,
+              elevation: 5,
+              onPressed:() {
+                Future.delayed(const Duration(seconds: 0), () {
+      Navigator.pushReplacement(
+        context, 
+        MaterialPageRoute(builder: (_)=> AgendaPantalla(),
+        ),
+        );
+    }
+    );
+              },
+              child: const Icon(Icons.add, size: 30,),
+              ),
     );
   }
 }
